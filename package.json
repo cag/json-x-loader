@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/cag/json-x-loader/issues"
   },
-  "homepage": "https://github.com/cag/json-x-loader#readme"
+  "homepage": "https://github.com/cag/json-x-loader#readme",
+  "dependencies": {
+    "loader-utils": "^1.1.0"
+  }
 }
