@@ -1,0 +1,27 @@
+{
+  "name": "json-x-loader",
+  "version": "0.1.0",
+  "description": "Webpack JSON transformer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cag/json-x-loader.git"
+  },
+  "keywords": [
+    "webpack",
+    "json",
+    "loader",
+    "extension",
+    "transformer",
+    "filter"
+  ],
+  "author": "Alan Lu <alanlu1023@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cag/json-x-loader/issues"
+  },
+  "homepage": "https://github.com/cag/json-x-loader#readme"
+}
