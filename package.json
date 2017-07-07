@@ -1,10 +1,10 @@
 {
   "name": "json-x-loader",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Webpack JSON transformer",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,9 @@
   "homepage": "https://github.com/cag/json-x-loader#readme",
   "dependencies": {
     "loader-utils": "^1.1.0"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.4",
+    "mocha": "^3.4.2"
   }
 }
