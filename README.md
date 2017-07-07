@@ -10,7 +10,7 @@ In your webpack configuration:
 ```js
 rules: [{
     test: /\.json$/,
-    use: ['json-loader', 'json-x-loader?exclude=bar,baz']
+    use: ['json-loader', 'json-x-loader?exclude=bar+baz']
 }]
 ```
 
@@ -25,3 +25,47 @@ Then, when you load a json file:
 ```
 
 Webpack will emit only `{"foo":1}` and exclude the `bar` and `baz` keys.
+
+You can also use wildcards and deep keys. For example:
+
+```js
+rules: [{
+    test: /\.json$/,
+    use: ['json-loader', 'json-x-loader?exclude=foo.*+*.zilly']
+}]
+```
+
+with
+
+```json
+{
+    "foo": {
+        "a": "b",
+        "c": {
+            "d": "e"
+        }
+    },
+    "baz": {
+        "zilly": "hoo",
+        "zonk": "patwang"
+    },
+    "donkeykong": {
+        "zilly": "silly",
+        "foreally": "dealy"
+    }
+}
+```
+
+yields
+
+```json
+{
+    "foo": {},
+    "baz": {
+        "zonk": "patwang"
+    },
+    "donkeykong": {
+        "foreally": "dealy"
+    }
+}
+```
