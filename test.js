@@ -17,36 +17,36 @@ describe('json-x-loader', () => {
     const fooJSON = JSON.stringify(fooData)
 
     it('should load json', () => {
-        assert.deepEqual(jsonXLoader.call({}, fooJSON), fooData)
+        assert.deepEqual(JSON.parse(jsonXLoader.call({}, fooJSON)), fooData)
     })
 
     it('should exclude a key', () => {
         assert.deepEqual(
-            jsonXLoader.call({ query: '?exclude=foo' }, fooJSON),
+            JSON.parse(jsonXLoader.call({ query: '?exclude=foo' }, fooJSON)),
             _.omit(fooData, ['foo'])
         )
     })
 
     it('should exclude multiple keys', () => {
         assert.deepEqual(
-            jsonXLoader.call({ query: '?exclude=foo+donkeykong' }, fooJSON),
+            JSON.parse(jsonXLoader.call({ query: '?exclude=foo+donkeykong' }, fooJSON)),
             _.omit(fooData, ['foo', 'donkeykong'])
         )
     })
 
     it('should exclude deep keys', () => {
         assert.deepEqual(
-            jsonXLoader.call({ query: '?exclude=baz.zonk' }, fooJSON),
+            JSON.parse(jsonXLoader.call({ query: '?exclude=baz.zonk' }, fooJSON)),
             _.omit(fooData, ['baz.zonk'])
         )
     })
 
     it('should exclude wildcard keys', () => {
-        assert.deepEqual(jsonXLoader.call({ query: '?exclude=*' }, fooJSON), {})
+        assert.deepEqual(JSON.parse(jsonXLoader.call({ query: '?exclude=*' }, fooJSON)), {})
     })
 
     it('should exclude deep wildcard keys', () => {
-        assert.deepEqual(jsonXLoader.call({ query: '?exclude=*.zilly+foo' }, fooJSON), {
+        assert.deepEqual(JSON.parse(jsonXLoader.call({ query: '?exclude=*.zilly+foo' }, fooJSON)), {
             baz: {
                 zonk: 'patwang',
             },
@@ -54,7 +54,7 @@ describe('json-x-loader', () => {
                 foreally: 'dealy',
             },
         })
-        assert.deepEqual(jsonXLoader.call({ query: '?exclude=baz+donkeykong.*' }, fooJSON), {
+        assert.deepEqual(JSON.parse(jsonXLoader.call({ query: '?exclude=baz+donkeykong.*' }, fooJSON)), {
             foo: 'bar',
             donkeykong: {},
         })

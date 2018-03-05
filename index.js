@@ -53,5 +53,5 @@ module.exports = function (source) {
         }
     }
 
-    return value
+    return JSON.stringify(value)
 }

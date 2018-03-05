@@ -10,7 +10,7 @@ In your webpack configuration:
 ```js
 rules: [{
     test: /\.json$/,
-    use: ['json-loader', 'json-x-loader?exclude=bar+baz']
+    use: ['json-x-loader?exclude=bar+baz']
 }]
 ```
 
@@ -31,7 +31,7 @@ You can also use wildcards and deep keys. For example:
 ```js
 rules: [{
     test: /\.json$/,
-    use: ['json-loader', 'json-x-loader?exclude=foo.*+*.zilly']
+    use: ['json-x-loader?exclude=foo.*+*.zilly']
 }]
 ```
 
